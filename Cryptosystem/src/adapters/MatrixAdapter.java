@@ -1,5 +1,5 @@
 package adapters;
 
-public class MatrixAdapter {
+public interface MatrixAdapter {
 
 }

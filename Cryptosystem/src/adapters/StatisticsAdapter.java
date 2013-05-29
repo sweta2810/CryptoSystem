@@ -1,5 +1,5 @@
 package adapters;
 
-public class StatisticsAdapter {
+public interface StatisticsAdapter {
 
 }
