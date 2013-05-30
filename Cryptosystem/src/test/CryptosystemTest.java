@@ -6,6 +6,14 @@ import keyGen.KeyTuple;
 import keyGen.TrapdoorSampler;
 import homomorphicOperations.HomomorphicOps;
 
+/**
+ * 
+ * @author Aaron
+ * Created to informally test the entire system before more formal tests are performed
+ * This can be modularised to allow for tests of individual subsystems.
+ * 
+ */
+
 public class CryptosystemTest {
 
 	public static void main(String[] args) {
@@ -14,7 +22,7 @@ public class CryptosystemTest {
 	
 	private static void overallTest(){
 		long testSecurityParameter = 5000;
-		long testModulus = 0;
+		long testModulus = 7;
 		
 		KeyTuple outputTuple = TrapdoorSampler.trapSamp(testSecurityParameter, testModulus);
 
