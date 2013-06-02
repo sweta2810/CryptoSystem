@@ -1,5 +1,7 @@
 package decrypt;
 
+import java.math.BigInteger;
+
 /**
  * 
  * @author Aaron
@@ -9,7 +11,7 @@ package decrypt;
 
 public class CiphertextDecrypter {
 	
-	public long[][] decrypt(long[][] ciphertext, long[][] privateKey){
+	public BigInteger[][] decrypt(BigInteger[][] ciphertext, BigInteger[][] privateKey){
 		
 		return null;
 		

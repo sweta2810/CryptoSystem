@@ -1,22 +1,24 @@
 package adapters;
 
+import java.math.BigInteger;
+
 import org.jblas.DoubleMatrix;
 
 public class JBLASAdapter implements MatrixAdapter {
 
 	@Override
-	public long[][] add(long[][] m1, long[][] m2) {
+	public BigInteger[][] add(BigInteger[][] m1, BigInteger[][] m2) {
 		return null;
 	}
 
 	@Override
-	public long[][] multiply(long[][] m1, long[][] m2) {
+	public BigInteger[][] multiply(BigInteger[][] m1, BigInteger[][] m2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public long[][] transpose(long[][] m) {
+	public BigInteger[][] transpose(BigInteger[][] m) {
 		// TODO Auto-generated method stub
 		return null;
 	}

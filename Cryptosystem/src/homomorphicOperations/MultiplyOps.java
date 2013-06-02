@@ -1,5 +1,7 @@
 package homomorphicOperations;
 
+import java.math.BigInteger;
+
 import adapters.MatrixAdapter;
 import adapters.JBLASAdapter;
 
@@ -10,9 +12,9 @@ import adapters.JBLASAdapter;
  */
 
 public class MultiplyOps {
-	public static long[][] multiply(long[][] c1, long[][] c2){
+	public static BigInteger[][] multiply(BigInteger[][] c1, BigInteger[][] c2){
 		MatrixAdapter ma = new JBLASAdapter();
-		long[][] c3 = ma.multiply(c1, ma.transpose(c2));
+		BigInteger[][] c3 = ma.multiply(c1, ma.transpose(c2));
 		return c3;
 		
 	}

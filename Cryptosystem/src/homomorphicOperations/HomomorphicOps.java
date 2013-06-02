@@ -1,4 +1,7 @@
 package homomorphicOperations;
+
+import java.math.BigInteger;
+
 /**
  * 
  * @author Aaron
@@ -9,15 +12,15 @@ package homomorphicOperations;
 public class HomomorphicOps implements HomomorphicOperations {
 
 	@Override
-	public long[][] add(long[][] c1, long[][] c2) {
-		long[][] c3 = AddOps.add(c1, c2);
+	public BigInteger[][] add(BigInteger[][] c1, BigInteger[][] c2) {
+		BigInteger[][] c3 = AddOps.add(c1, c2);
 		return c3;
 	}
 
 	@Override
-	public long[][] multiply(long[][] c1, long[][] c2) {
-		long[][] c3 = MultiplyOps.multiply(c1, c2);
-		return null;
+	public BigInteger[][] multiply(BigInteger[][] c1, BigInteger[][] c2) {
+		BigInteger[][] c3 = MultiplyOps.multiply(c1, c2);
+		return c3;
 	}
 
 }
