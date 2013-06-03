@@ -1,7 +1,9 @@
 package encrypt;
 
+import java.math.BigInteger;
+
 public interface Encrypter {
 
-	public long[][] encrypt(long[][] plaintext ,long[][] publicKey);
+	public BigInteger[][] encrypt(BigInteger[][] plaintext ,BigInteger[][] publicKey);
 	
 }

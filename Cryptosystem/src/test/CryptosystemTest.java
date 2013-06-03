@@ -1,10 +1,20 @@
 package test;
 
+import java.math.BigInteger;
+
 import decrypt.CiphertextDecrypter;
 import encrypt.PlaintextEncrypter;
 import keyGen.KeyTuple;
 import keyGen.TrapdoorSampler;
 import homomorphicOperations.HomomorphicOps;
+
+/**
+ * 
+ * @author Aaron
+ * Created to informally test the entire system before more formal tests are performed
+ * This can be modularised to allow for tests of individual subsystems.
+ * 
+ */
 
 public class CryptosystemTest {
 
@@ -13,19 +23,20 @@ public class CryptosystemTest {
 	}
 	
 	private static void overallTest(){
-		long testSecurityParameter = 5000;
-		long testModulus = 0;
+		BigInteger testSecurityParameter = BigInteger.valueOf(5000);
+		BigInteger testModulus = BigInteger.valueOf(7);
 		
+		//needs to me modified to fit trapsamp...
 		KeyTuple outputTuple = TrapdoorSampler.trapSamp(testSecurityParameter, testModulus);
 
-		long[][] privateKey = outputTuple.getPrivateKey();
-		long[][] publicKey = outputTuple.getPublicKey();
+		BigInteger[][] privateKey = outputTuple.getPrivateKey();
+		BigInteger[][] publicKey = outputTuple.getPublicKey();
 		
 		//Initialise plaintext matrix. Should make random eventually, so that we don't keep using the same test values
-		long[][] plainText = new long[10][10];
+		BigInteger[][] plainText = new BigInteger[10][10];
 		for (int x=0; x<10;x++){
 			for (int y=0;y<10;y++){
-				plainText[x][y] = x+y;
+				plainText[x][y] = BigInteger.valueOf(x+y);
 			}			
 		}
 		
@@ -34,7 +45,7 @@ public class CryptosystemTest {
 		System.out.println();
 		
 		PlaintextEncrypter pe = new PlaintextEncrypter();
-		long[][] cipherText = pe.encrypt(plainText, publicKey);
+		BigInteger[][] cipherText = pe.encrypt(plainText, publicKey);
 		
 		System.out.println("Ciphertext:");
 		System.out.println(cipherText);
@@ -42,13 +53,13 @@ public class CryptosystemTest {
 		
 		HomomorphicOps ho = new HomomorphicOps();
 		
-		long[][] addedCipherText = ho.add(cipherText, cipherText);
+		BigInteger[][] addedCipherText = ho.add(cipherText, cipherText);
 		
 		System.out.println("Added Ciphertext:");
 		System.out.println(addedCipherText);
 		System.out.println();
 		
-		long[][] multipliedCipherText = ho.multiply(cipherText, cipherText);
+		BigInteger[][] multipliedCipherText = ho.multiply(cipherText, cipherText);
 		
 		System.out.println("Multiplied Ciphertext:");
 		System.out.println(multipliedCipherText);
@@ -56,9 +67,9 @@ public class CryptosystemTest {
 		
 		CiphertextDecrypter cd = new CiphertextDecrypter();
 		
-		long[][] decryptedCiphertext = cd.decrypt(cipherText, privateKey);
-		long[][] decryptedAddedCiphertext = cd.decrypt(addedCipherText, privateKey);
-		long[][] decryptedMultipliedCiphertext = cd.decrypt(multipliedCipherText, privateKey);
+		BigInteger[][] decryptedCiphertext = cd.decrypt(cipherText, privateKey);
+		BigInteger[][] decryptedAddedCiphertext = cd.decrypt(addedCipherText, privateKey);
+		BigInteger[][] decryptedMultipliedCiphertext = cd.decrypt(multipliedCipherText, privateKey);
 		
 		System.out.println("Decrypted Plaintext:");
 		System.out.println(decryptedCiphertext);
