@@ -5,6 +5,13 @@ import java.math.BigInteger;
 public class BigIntegerMatrixOperations implements MatrixAdapter{
 
 	@Override
+	/**
+	 * 
+	 * Add two BigInteger values, returning a new BigInteger value which reporsents the sum of the inputs.
+	 * @param m1 an operand matrix for the additon operation 
+	 * @param m2 another operand matrix for the addition operation
+	 * @return m3 a new matrix representing the sum of the two input matricies
+	 */
 	public BigInteger[][] add(BigInteger[][] m1, BigInteger[][] m2) {
 		//test that addition is legal between the two matricies
 		if (m1.length != m2.length && m1[0].length != m2[0].length){
@@ -24,7 +31,13 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 		return null;
 		
 	}
-
+/**
+ * 
+ * Multiply two BigInteger values in ~O(n^3) time. Note that more efficient matrix multiplication is possible.
+ * @param m1 an operand matrix for the multiplication operation 
+ * @param m2 another operand matrix for the multiplication operation
+ * @return m3 a new matrix representing the product of the two input matricies
+ */
 	@Override
 	public BigInteger[][] multiply(BigInteger[][] m1, BigInteger[][] m2) {
 		BigInteger[][] m3 = new BigInteger[m1[0].length][m2.length];
@@ -40,7 +53,13 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 		}
 		return m3;
 	}
-
+/**
+ * 
+ * Generates the transpose of a BigInteger matrix
+ * @param m a BigInteger matrix
+ * @return m2 a BigInteger matrix where the rows of the input matrix have been swapped with the columns of the input matrix
+ * 
+ */
 	@Override
 	public BigInteger[][] transpose(BigInteger[][] m) {
 		BigInteger[][] m2 = new BigInteger[m.length][m[0].length];
