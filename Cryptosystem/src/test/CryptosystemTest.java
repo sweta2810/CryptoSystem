@@ -21,7 +21,9 @@ public class CryptosystemTest {
 	public static void main(String[] args) {
 		overallTest();
 	}
-	
+	/**
+	 * tests all of the functionality of a typical success scenario for the entire system. Informal. Missing tests include tests for exceeding the parameters given in the paper.
+	 */
 	private static void overallTest(){
 		BigInteger testSecurityParameter = BigInteger.valueOf(5000);
 		BigInteger testModulus = BigInteger.valueOf(7);

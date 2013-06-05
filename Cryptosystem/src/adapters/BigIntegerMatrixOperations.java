@@ -70,6 +70,11 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 		}
 		return null;
 	}
-	
+	public BigInteger[][] transpose(BigInteger[][] m){
+		return null;
+	}
+	public BigInteger[][] inverse(BigInteger[][] m){
+		return null;
+	}
 
 }
