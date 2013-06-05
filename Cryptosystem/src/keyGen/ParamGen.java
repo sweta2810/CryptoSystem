@@ -1,12 +1,22 @@
+package keyGen;
 
 
 import java.util.Random;
+import java.math.BigInteger;
+import java.math.BigDecimal;
+
+/**
+ *@author Nishant Rathore
+ *
+ *This class sets the paramater values that are used to form matrices. 
+ */
+
 
 
 public class ParamGen {
 
 
-	private final long MODULUS;
+	private final BigInteger MODULUS;
 	private final long SECURITY_PARAMETER;
 	private final long ANY_C;
 	private final long DIMENSION_M;
@@ -25,50 +35,31 @@ public class ParamGen {
 		
 		//there's potential for loss of accuracy here. Watch out
 		//Now it won't be. 
-		double almostM = 8*SECURITY_PARAMETER*Math.log(MODULUS);		
+		double almostM = 8*SECURITY_PARAMETER*Math.log(MODULUS.doubleValue());		
 		long m = (long) (almostM+1);
 		
 		return m;
 		
 	}
 
-	public long generateModulus(){
+	public BigInteger generateModulus(){
+		BigDecimal power20 = new BigDecimal((Math.pow(2,20)));
+		BigDecimal logValue = new BigDecimal(Math.pow(Math.log10(SECURITY_PARAMETER),5));
+		BigDecimal anyC = new BigDecimal((Math.pow(ANY_C+4,3)));
+		BigDecimal qValue = (new BigDecimal(Math.pow(SECURITY_PARAMETER,(3*(ANY_C))+4)));
+		BigDecimal almostQ = power20.multiply(logValue).multiply(anyC).multiply(qValue);
+		BigInteger q = (almostQ.toBigInteger());				
 
-		double almostQ = (Math.pow(2,20)*Math.pow(Math.log10(SECURITY_PARAMETER),5));
-		System.out.println("AlmostQ1: "+almostQ);
-			almostQ	=  (long) (almostQ*(Math.pow(ANY_C+4,3)));
-				System.out.println("AlmostQ2: "+almostQ);
-			almostQ = (long)(almostQ*(Math.pow(SECURITY_PARAMETER,(3*(ANY_C))+4)));
-			System.out.println("AlmostQ3: "+almostQ);
-		long q = (long)Math.floor(almostQ);
-				System.out.println("q: "+new Double(almostQ).longValue());
-		System.out.println("q is Prime: "+isPrime(q));
-		while(true){
-		    if(isPrime(q)){
-			break;
-		    }
-		    else{
-			q=q+1;
-		    }			
-		}
 		return q;
 	} 
 
-	public boolean isPrime(long q){
-		int i=2;
-		while(i<q){
-		
-		    if(q%i==0){	
-			
-			return false;
-		    }		
-		    i++;    	
-		}	
-		return true;					
+	public BigInteger nextPrime(BigInteger q){
+		return q.nextProbablePrime();
+							
 	}
 
 
-	public long generateAnyC(){
+	public int generateAnyC(){
 		
 		return (new Random().nextInt(3) + 1);
 
