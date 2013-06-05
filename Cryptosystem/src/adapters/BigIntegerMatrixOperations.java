@@ -70,10 +70,13 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 		}
 		return null;
 	}
-	public BigInteger[][] transpose(BigInteger[][] m){
+
+	public BigInteger[][] inverse(BigInteger[][] m){
 		return null;
 	}
-	public BigInteger[][] inverse(BigInteger[][] m){
+	@Override
+	public BigInteger[][] mod(BigInteger[][] m, BigInteger mod) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

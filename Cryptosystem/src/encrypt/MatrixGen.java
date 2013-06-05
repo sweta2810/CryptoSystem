@@ -1,8 +1,10 @@
 package encrypt;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 public class MatrixGen {
 
-<<<<<<< HEAD
 	/**
 	 * Generates a error matrix sampled from the distribution in the lwe-bgn paper.
 	 * @return
@@ -32,6 +34,4 @@ public class MatrixGen {
 		return ranMatrix;		
 	}
 	
-=======
->>>>>>> branch 'master' of https://aacurtis@bitbucket.org/aacurtis/shcryptosystem.git
 }

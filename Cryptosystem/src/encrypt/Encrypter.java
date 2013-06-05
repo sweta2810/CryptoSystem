@@ -1,6 +1,6 @@
 package encrypt;
 
-<<<<<<< HEAD
+
 import java.math.BigInteger;
 
 /**
@@ -10,10 +10,10 @@ import java.math.BigInteger;
  *
  */
 
-=======
->>>>>>> branch 'master' of https://aacurtis@bitbucket.org/aacurtis/shcryptosystem.git
+
+
 public interface Encrypter {
 
-	public long[][] encrypt(long[][] plaintext ,long[][] publicKey);
+	public BigInteger[][] encrypt(BigInteger[][] plaintext ,BigInteger[][] publicKey);
 	
 }
