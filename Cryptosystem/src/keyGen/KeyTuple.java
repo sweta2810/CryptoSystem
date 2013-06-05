@@ -1,29 +1,27 @@
 package keyGen;
 
-import java.math.BigInteger;
-
 public class KeyTuple {
 
-	private BigInteger[][] privateKey;
-	private BigInteger[][] publicKey;
+	private long[][] privateKey;
+	private long[][] publicKey;
 	
-	public KeyTuple(BigInteger[][] pub, BigInteger[][] priv){
+	public KeyTuple(long[][] pub, long[][] priv){
 		
 		publicKey = pub;
 		privateKey = priv;
 		
 	}
 	
-	public BigInteger[][] getPrivateKey() {
+	public long[][] getPrivateKey() {
 		return privateKey;
 	}
-	public void setPrivateKey(BigInteger[][] privateKey) {
+	public void setPrivateKey(long[][] privateKey) {
 		this.privateKey = privateKey;
 	}
-	public BigInteger[][] getPublicKey() {
+	public long[][] getPublicKey() {
 		return publicKey;
 	}
-	public void setPublicKey(BigInteger[][] publicKey) {
+	public void setPublicKey(long[][] publicKey) {
 		this.publicKey = publicKey;
 	}
 	
