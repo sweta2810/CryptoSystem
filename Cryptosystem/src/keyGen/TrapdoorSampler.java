@@ -8,10 +8,11 @@ import java.util.Random;
  *
  */
 
+import java.math.BigInteger;
+
 public class TrapdoorSampler {
 
-	
-	
+
 	
 	public TrapdoorSampler(){
 		
@@ -42,8 +43,12 @@ public class TrapdoorSampler {
 		return matrixA;
 	}
 	
-	public DoubleMatrix generateMatrixT(){
-		
+	public DoubleMatrix generateMatrixT() {
+		return null;
+	}
+
+	public static KeyTuple trapSamp(BigInteger modulus, BigInteger securityParameter){
+
 		
 		
 		return null;

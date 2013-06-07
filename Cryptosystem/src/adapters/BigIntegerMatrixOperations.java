@@ -70,6 +70,14 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 		}
 		return null;
 	}
-	
+
+	public BigInteger[][] inverse(BigInteger[][] m){
+		return null;
+	}
+	@Override
+	public BigInteger[][] mod(BigInteger[][] m, BigInteger mod) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
