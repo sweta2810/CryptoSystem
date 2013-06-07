@@ -1,4 +1,3 @@
-package keyGen;
 
 
 import java.util.Random;
@@ -22,13 +21,38 @@ public class ParamGen {
 	private final long DIMENSION_M;
 	private ParamGen paramGenInstance;
 
-	private ParamGen(long securityParameter){
+	protected ParamGen(){
 	   	
-		SECURITY_PARAMETER = securityParameter;
+		SECURITY_PARAMETER = setSecurityParameter();
 		ANY_C = generateAnyC();	
 		MODULUS = generateModulus();
 		DIMENSION_M = generateDimentionality();
 	
+	}
+	
+	private long setSecurityParameter() {
+		
+		return (70+new Random().nextLong());
+	}
+	
+	protected long getSecurityParameter() {
+		
+		return SECURITY_PARAMETER;
+	}
+	
+	protected long getAnyC() {
+		
+		return ANY_C;
+	}
+	
+	protected BigInteger getModulus() {
+		
+		return MODULUS;
+	}
+	
+	protected long getDimension_M() {
+		
+		return DIMENSION_M;
 	}
 	
 	public long generateDimentionality(){
@@ -65,11 +89,11 @@ public class ParamGen {
 
 	}
 		
-	public ParamGen getParamGenInstance(long securityParameter){
+	public ParamGen getParamGenInstance(){
 
 	    	if(paramGenInstance==null){
 		
-			paramGenInstance = new ParamGen(securityParameter);
+			paramGenInstance = new ParamGen();
 		}	
 		
 		return paramGenInstance;
@@ -79,9 +103,10 @@ public class ParamGen {
 
 	public static void main(String[] args){
 
-	    ParamGen pg = new ParamGen(6);
+	    ParamGen pg = new ParamGen(600);
 	    System.out.println("C: "+ pg.ANY_C);
-            System.out.println("Q:"+ pg.MODULUS);			
+            System.out.println("Q:"+ pg.MODULUS);
+            System.out.println("Q:"+ pg.DIMENSION_M);
 
 	}	
 
