@@ -7,13 +7,13 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 	@Override
 	/**
 	 * 
-	 * Add two BigInteger values, returning a new BigInteger value which reporsents the sum of the inputs.
-	 * @param m1 an operand matrix for the additon operation 
+	 * Add two BigInteger values, returning a new BigInteger value which represents the sum of the inputs.
+	 * @param m1 an operand matrix for the addition operation 
 	 * @param m2 another operand matrix for the addition operation
-	 * @return m3 a new matrix representing the sum of the two input matricies
+	 * @return m3 a new matrix representing the sum of the two input matrices
 	 */
 	public BigInteger[][] add(BigInteger[][] m1, BigInteger[][] m2) {
-		//test that addition is legal between the two matricies
+		//test that addition is legal between the two matrices
 		if (m1.length != m2.length && m1[0].length != m2[0].length){
 			//throw an exception
 		}
@@ -68,16 +68,42 @@ public class BigIntegerMatrixOperations implements MatrixAdapter{
 				m2[x][y] = m[y][x];
 			}
 		}
-		return null;
+		return m2;
 	}
 
 	public BigInteger[][] inverse(BigInteger[][] m){
+		if (m.length == m[0].length){
+			
+		}
+		else{
+			//TODO throw exception
+		}
 		return null;
 	}
 	@Override
 	public BigInteger[][] mod(BigInteger[][] m, BigInteger mod) {
-		// TODO Auto-generated method stub
+		BigInteger[][] m2 = new BigInteger[m.length][m[0].length];
+		for (int x=0;x<m.length;x++){
+			for(int y=0;y<m[0].length;y++){
+				m2[x][y] = m[x][y].mod(mod);
+			}
+		}
+		return m2;
+	}
+	@Override
+	public BigInteger[][] multiply(BigInteger[][] m, BigInteger b) {
+		BigInteger[][] m2 = new BigInteger[m.length][m[0].length];
+		for (int x=0;x<m.length;x++){
+			for(int y=0;y<m[0].length;y++){
+				m2[x][y] = m[x][y].multiply(b);
+			}
+		}
 		return null;
+	}
+	
+	private BigInteger determinant(BigInteger[][] m){
+		return null;
+		
 	}
 
 }

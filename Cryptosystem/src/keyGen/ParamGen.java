@@ -33,8 +33,6 @@ public class ParamGen {
 	
 	public long generateDimentionality(){
 		
-		//there's potential for loss of accuracy here. Watch out
-		//Now it won't be. 
 		double almostM = 8*SECURITY_PARAMETER*Math.log(MODULUS.doubleValue());		
 		long m = (long) (almostM+1);
 		

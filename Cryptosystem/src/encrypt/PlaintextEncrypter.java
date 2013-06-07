@@ -2,8 +2,10 @@ package encrypt;
 
 import java.math.BigInteger;
 
+import adapters.ApacheCommonsMathAdapter;
 import adapters.BigIntegerMatrixOperations;
 import adapters.MatrixAdapter;
+import adapters.StatisticsAdapter;
 
 public class PlaintextEncrypter implements Encrypter{
 
@@ -16,14 +18,14 @@ public class PlaintextEncrypter implements Encrypter{
 	
 	public BigInteger[][] encrypt(BigInteger[][] plaintext, BigInteger[][] publicKey) {
 		MatrixAdapter ma = new BigIntegerMatrixOperations();
+		StatisticsAdapter sa = new ApacheCommonsMathAdapter();
 		MatrixGen gen = new MatrixGen(); 
 		//need to get the correct parameters in here
 		BigInteger[][] ranMatrix = gen.generateRandomMatrix();
-		//TODO get random distrobution matrix, this is a dummy matrix
-		BigInteger[][] X = null;
-		//need to create a MatrixAdapter operation for a matrix times a scalar and for the modd operation
-		//remember that matrix multiplication is not commutative. The order may need to be altered here...
-		BigInteger[][] outMatrix = ma.add(ma.add(ma.multiply(publicKey, ranMatrix), ma.multiply(2, X)), plaintext); //mod q, this operation is not yet implemented.
+
+		BigInteger[][] errorMatrix = sa.generateErrorMatrix();
+		
+		BigInteger[][] outMatrix = ma.mod(ma.add(ma.add(ma.multiply(publicKey, ranMatrix), ma.multiply(errorMatrix, BigInteger.valueOf(2))), plaintext), q); //need to access q...
 		return outMatrix;
 
 	}

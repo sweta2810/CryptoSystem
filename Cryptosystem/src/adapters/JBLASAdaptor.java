@@ -34,4 +34,10 @@ public class JBLASAdaptor implements MatrixAdapter {
 		return null;
 	}
 
+	@Override
+	public BigInteger[][] multiply(BigInteger[][] m, BigInteger b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
