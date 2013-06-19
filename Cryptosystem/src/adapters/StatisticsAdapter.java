@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 public interface StatisticsAdapter {
 
-	public BigInteger sample();
-	BigInteger[][] generateErrorMatrix();
+	public double sample();
+	double[][] generateErrorMatrix();
 	
 }

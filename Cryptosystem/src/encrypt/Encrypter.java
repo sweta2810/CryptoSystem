@@ -14,6 +14,6 @@ import java.math.BigInteger;
 
 public interface Encrypter {
 
-	public BigInteger[][] encrypt(BigInteger[][] plaintext ,BigInteger[][] publicKey);
+	public double[][] encrypt(double[][] plaintext ,double[][] publicKey);
 	
 }

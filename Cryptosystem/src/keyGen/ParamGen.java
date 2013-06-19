@@ -1,3 +1,5 @@
+package keyGen;
+
 
 
 import java.util.Random;
@@ -21,7 +23,7 @@ public class ParamGen {
 	private final long DIMENSION_M;
 	private ParamGen paramGenInstance;
 
-	protected ParamGen(){
+	public ParamGen(){
 	   	
 		SECURITY_PARAMETER = setSecurityParameter();
 		ANY_C = generateAnyC();	
@@ -97,7 +99,7 @@ public class ParamGen {
 		return paramGenInstance;
 
 	}
-
+/**
 
 	public static void main(String[] args){
 
@@ -107,7 +109,7 @@ public class ParamGen {
             System.out.println("Q:"+ pg.DIMENSION_M);
 
 	}	
-
+**/
 	//may need to add a method to generate beta, too...
 	//Also, deal with c somehow...
 	

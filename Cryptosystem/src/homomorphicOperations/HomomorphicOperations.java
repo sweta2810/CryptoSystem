@@ -6,10 +6,10 @@ public interface HomomorphicOperations {
 	/**
 	 * adds two ciphertexts
 	 */
-	public BigInteger[][] add(BigInteger[][] c1, BigInteger[][] c2);
+	public double[][] add(double[][] c1, double[][] c2);
 	/**
 	 * multiplies two ciphertexts
 	 */
-	public BigInteger[][] multiply(BigInteger[][] c1,BigInteger[][] c2);
+	public double[][] multiply(double[][] c1,double[][] c2);
 
 }

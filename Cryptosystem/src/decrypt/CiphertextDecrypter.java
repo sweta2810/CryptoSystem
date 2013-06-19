@@ -3,14 +3,15 @@ package decrypt;
 import java.math.BigInteger;
 
 import adapters.BigIntegerMatrixOperations;
+import adapters.JBLASAdapter;
 import adapters.MatrixAdapter;
 
 public class CiphertextDecrypter {
 	
-	public BigInteger[][] decrypt(BigInteger[][] ciphertext, BigInteger[][] privateKey){
-		MatrixAdapter ma = new BigIntegerMatrixOperations();
-		BigInteger[][] E = ma.multiply(ma.multiply(privateKey, ciphertext), ma.transpose(privateKey));
-		BigInteger[][] B = ma.mod(ma.multiply(ma.multiply(ma.inverse(privateKey),E), ma.inverse(ma.transpose(privateKey))), BigInteger.valueOf(2));
+	public double[][] decrypt(double[][] ciphertext, double[][] privateKey){
+		JBLASAdapter ma = new JBLASAdapter();
+		double[][] E = ma.multiply(ma.multiply(privateKey, ciphertext), ma.transpose(privateKey));
+		double[][] B = ma.mod(ma.multiply(ma.multiply(ma.inverse(privateKey),E), ma.inverse(ma.transpose(privateKey))), 2);
 		
 		return B;
 	}

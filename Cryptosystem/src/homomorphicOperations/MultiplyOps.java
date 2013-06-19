@@ -3,6 +3,7 @@ package homomorphicOperations;
 import java.math.BigInteger;
 
 import adapters.BigIntegerMatrixOperations;
+import adapters.JBLASAdapter;
 import adapters.MatrixAdapter;
 
 /**
@@ -12,9 +13,9 @@ import adapters.MatrixAdapter;
  */
 
 public class MultiplyOps {
-	public static BigInteger[][] multiply(BigInteger[][] c1, BigInteger[][] c2){
-		MatrixAdapter ma = new BigIntegerMatrixOperations();
-		BigInteger[][] c3 = ma.multiply(c1, ma.transpose(c2));
+	public static double[][] multiply(double[][] c1, double[][] c2){
+		JBLASAdapter ma = new JBLASAdapter();
+		double[][] c3 = ma.multiply(c1, ma.transpose(c2));
 		return c3;
 		
 	}

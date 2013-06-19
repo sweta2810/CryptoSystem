@@ -12,14 +12,14 @@ import java.math.BigInteger;
 public class HomomorphicOps implements HomomorphicOperations {
 
 	@Override
-	public BigInteger[][] add(BigInteger[][] c1, BigInteger[][] c2) {
-		BigInteger[][] c3 = AddOps.add(c1, c2);
+	public double[][] add(double[][] c1, double[][] c2) {
+		double[][] c3 = AddOps.add(c1, c2);
 		return c3;
 	}
 
 	@Override
-	public BigInteger[][] multiply(BigInteger[][] c1, BigInteger[][] c2) {
-		BigInteger[][] c3 = MultiplyOps.multiply(c1, c2);
+	public double[][] multiply(double[][] c1, double[][] c2) {
+		double[][] c3 = MultiplyOps.multiply(c1, c2);
 		return c3;
 	}
 

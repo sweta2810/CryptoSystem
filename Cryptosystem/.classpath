@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="C:/Users/Aaron/Dropbox/Work/jblas-1.2.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Aaron/commons-math3-3.2/commons-math3-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Downloads/ujmp-complete-0.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Downloads/Jama-1.0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
