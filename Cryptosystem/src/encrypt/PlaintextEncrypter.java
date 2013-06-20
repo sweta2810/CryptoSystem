@@ -6,6 +6,7 @@ import keyGen.ParamGen;
 
 import adapters.ApacheCommonsMathAdapter;
 import adapters.BigIntegerMatrixOperations;
+import adapters.JAMAAdapter;
 import adapters.JBLASAdapter;
 import adapters.MatrixAdapter;
 import adapters.StatisticsAdapter;
@@ -20,7 +21,7 @@ public class PlaintextEncrypter implements Encrypter{
 	 */
 	
 	public double[][] encrypt(double[][] plaintext, double[][] publicKey) {
-		JBLASAdapter ma = new JBLASAdapter();
+		JAMAAdapter ma = new JAMAAdapter();
 		StatisticsAdapter sa = new ApacheCommonsMathAdapter();
 		MatrixGen gen = new MatrixGen(); 
 		//need to get the correct parameters in here

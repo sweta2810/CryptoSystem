@@ -3,6 +3,7 @@ package homomorphicOperations;
 import java.math.BigInteger;
 
 import adapters.BigIntegerMatrixOperations;
+import adapters.JAMAAdapter;
 import adapters.JBLASAdapter;
 import adapters.MatrixAdapter;
 
@@ -15,7 +16,7 @@ import adapters.MatrixAdapter;
 public class AddOps {
 	public static double[][] add(double[][] c1, double[][] c2){
 		//this should be a straightforward addition of the matricies, but we need to account for "overflow", which hasn't been done yet
-		JBLASAdapter ma = new JBLASAdapter();
+		JAMAAdapter ma = new JAMAAdapter();
 		double[][] c3 = ma.add(c1, c2);
 		return c3;
 	}
