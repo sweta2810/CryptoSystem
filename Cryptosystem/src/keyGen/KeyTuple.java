@@ -1,32 +1,33 @@
 package keyGen;
 
-import java.math.BigInteger;
+
+import Jama.Matrix;
 
 public class KeyTuple {
 
-	private BigInteger[][] privateKey;
-	private BigInteger[][] publicKey;
-	
-	public KeyTuple(BigInteger[][] pub, BigInteger[][] priv){
-		
-		publicKey = pub;
-		privateKey = priv;
-		
-	}
-	
-	public BigInteger[][] getPrivateKey() {
-		return privateKey;
-	}
-	public void setPrivateKey(BigInteger[][] privateKey) {
-		this.privateKey = privateKey;
-	}
-	public BigInteger[][] getPublicKey() {
-		return publicKey;
-	}
-	public void setPublicKey(BigInteger[][] publicKey) {
-		this.publicKey = publicKey;
-	}
-	
-	
-	
+        private Matrix privateKey;
+        private Matrix publicKey;
+        
+        public KeyTuple(double[][] pub, double[][] priv){
+                
+                publicKey = new Matrix(pub);
+                privateKey = new Matrix(priv);
+                
+        }
+        
+        public Matrix getPrivateKey() {
+                return privateKey;
+        }
+        public void setPrivateKey(Matrix privateKey) {
+                this.privateKey = privateKey;
+        }
+        public Matrix getPublicKey() {
+                return publicKey;
+        }
+        public void setPublicKey(Matrix publicKey) {
+                this.publicKey = publicKey;
+        }
+        
+        
+        
 }

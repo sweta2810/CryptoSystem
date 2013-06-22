@@ -1,10 +1,12 @@
 package keyGen;
+
+
 import jama.Matrix;
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This class implements the trapdoor sampling algorithm and generates two Key matrices.
+ * This class implements the Trapdoor sampling algorithm and generates two Key matrices.
  * @author Nishant Rathore
  *
  */
@@ -37,7 +39,7 @@ public class TrapdoorSampler {
 		double[][] matrixArray = new double[dimensionM][dimensionN];
 		for(int i=0;i<dimensionN;i++){
 			for(int j=0;j<dimensionM;j++){
-				matrixArray[i][j]= rand.nextInt(paramGen.generateModulus().intValue());
+				matrixArray[i][j]= rand.nextInt((int)paramGen.generateModulus());
 
 			}
 		}
@@ -48,13 +50,13 @@ public class TrapdoorSampler {
 	
 	public Matrix generateMatrixT(){
 		
-		Long dimensionMLong = new Long(paramGen.getDimension_M());
-		Long securityParameterLong = new Long(paramGen.getSecurityParameter());
-		int dimensionM = dimensionMLong.intValue();
-		
+		long dimensionMLong = paramGen.getDimension_M();
+		long securityParameterLong = paramGen.getSecurityParameter();
+		int dimensionM = (int)dimensionMLong;
+		createMatrix(dimensionM);
 		Matrix matrixT = new Matrix(matrix);
 		
-		return null;
+		return matrixT;
 	}
 	
 	public void createMatrix(int dimension){
@@ -81,7 +83,7 @@ public class TrapdoorSampler {
 		double[][] columnVector = new double[dimension][1]; 
 		for(int i=0;i<dimension;i++){
 			for(int j=0;j<1;j++){
-				columnVector[i][j]= rand.nextInt(paramGen.generateModulus().intValue());
+				columnVector[i][j]= rand.nextInt((int)paramGen.generateModulus());
 			}
 		}
 		Matrix columnMatrix = new Matrix(columnVector);
