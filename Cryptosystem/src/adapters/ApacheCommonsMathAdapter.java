@@ -3,8 +3,17 @@ package adapters;
 import java.math.BigInteger;
 
 import keyGen.ParamGen;
+import keyGen.TrapdoorSampler;
 
-import org.apache.commons.math3.distribution.NormalDistribution;
+import apache.commons.math3.distribution.NormalDistribution;
+
+import jama.Matrix;
+
+/**
+ * 
+ * @author Aaron Curtis and Nishant Rathore
+ *
+ */
 
 public class ApacheCommonsMathAdapter implements StatisticsAdapter {
 
@@ -27,7 +36,7 @@ public class ApacheCommonsMathAdapter implements StatisticsAdapter {
 	}
 
 	@Override
-	public double[][] generateErrorMatrix() {
+	public Matrix generateErrorMatrix() {
 		//potential issue with casting here
 		ParamGen pGen = new ParamGen();
 		double dimentionality = pGen.generateDimentionality();
@@ -37,7 +46,15 @@ public class ApacheCommonsMathAdapter implements StatisticsAdapter {
 				errorMatrix[x][y] = this.sample();
 			}
 		}
-		return errorMatrix;
+		return new Matrix(errorMatrix);
 	}
+	
+	public Matrix generateRandomMatrix(){
+		
+		TrapdoorSampler trap = new TrapdoorSampler();
+		
+		return trap.generateRandomA();
+	}
+	
 
 }

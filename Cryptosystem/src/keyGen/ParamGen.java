@@ -23,7 +23,7 @@ public class ParamGen {
 	private final long DIMENSION_M;
 	private ParamGen paramGenInstance;
 
-	protected ParamGen(){
+	public ParamGen(){
 	   	
 		SECURITY_PARAMETER = setSecurityParameter();
 		ANY_C = generateAnyC();	

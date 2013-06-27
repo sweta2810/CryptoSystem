@@ -1,6 +1,7 @@
 package adapters;
 
 import java.math.BigInteger;
+import jama.Matrix;
 
 /**
  * Meant to allow for interchangeable classes and adapters to allow for easy replacement of statistics operation implementations and external statistics operation packages.
@@ -11,6 +12,7 @@ import java.math.BigInteger;
 public interface StatisticsAdapter {
 
 	public double sample();
-	double[][] generateErrorMatrix();
+	Matrix generateErrorMatrix();
+	Matrix generateRandomMatrix();
 	
 }
