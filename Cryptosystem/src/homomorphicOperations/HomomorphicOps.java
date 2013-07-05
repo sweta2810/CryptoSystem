@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 /**
  * 
- * @author Aaron
+ * @author Aaron and Nishant
  *Used to access the homomorphic operations of the system.
  *Actual implementation deferred to AddOps and MultiplyOps classes
  *

@@ -12,7 +12,7 @@ import jama.Matrix;
 public interface StatisticsAdapter {
 
 	public double sample();
-	Matrix generateErrorMatrix();
-	Matrix generateRandomMatrix();
+	double[][] generateErrorMatrix();
+	double[][] generateRandomMatrix();
 	
 }

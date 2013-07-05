@@ -1,30 +1,33 @@
 package keyGen;
 
-
-import Jama.Matrix;
+/**
+ * 
+ * @author Nishant
+ *
+ */
 
 public class KeyTuple {
 
-        private Matrix privateKey;
-        private Matrix publicKey;
+        private double[][] privateKey;
+        private double[][] publicKey;
         
         public KeyTuple(double[][] pub, double[][] priv){
                 
-                publicKey = new Matrix(pub);
-                privateKey = new Matrix(priv);
+                publicKey = pub;
+                privateKey = priv;
                 
         }
         
-        public Matrix getPrivateKey() {
+        public double[][] getPrivateKey() {
                 return privateKey;
         }
-        public void setPrivateKey(Matrix privateKey) {
+        public void setPrivateKey(double[][] privateKey) {
                 this.privateKey = privateKey;
         }
-        public Matrix getPublicKey() {
+        public double[][] getPublicKey() {
                 return publicKey;
         }
-        public void setPublicKey(Matrix publicKey) {
+        public void setPublicKey(double[][] publicKey) {
                 this.publicKey = publicKey;
         }
         

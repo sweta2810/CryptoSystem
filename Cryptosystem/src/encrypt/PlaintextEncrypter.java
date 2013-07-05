@@ -3,6 +3,8 @@ package encrypt;
 import java.math.BigInteger;
 
 import keyGen.ParamGen;
+import jama.Matrix;
+
 
 import adapters.ApacheCommonsMathAdapter;
 import adapters.BigIntegerMatrixOperations;
@@ -10,6 +12,7 @@ import adapters.JAMAAdapter;
 import adapters.JBLASAdapter;
 import adapters.MatrixAdapter;
 import adapters.StatisticsAdapter;
+
 
 public class PlaintextEncrypter implements Encrypter{
 
@@ -23,15 +26,15 @@ public class PlaintextEncrypter implements Encrypter{
 	public double[][] encrypt(double[][] plaintext, double[][] publicKey) {
 		JAMAAdapter ma = new JAMAAdapter();
 		StatisticsAdapter sa = new ApacheCommonsMathAdapter();
-		MatrixGen gen = new MatrixGen(); 
+		 
 		//need to get the correct parameters in here
-		double[][] ranMatrix = gen.generateRandomMatrix();
+		double[][] randMatrix = sa.generateRandomMatrix();
 
 		double[][] errorMatrix = sa.generateErrorMatrix();
 		ParamGen pGen = new ParamGen();
 		double q = pGen.getModulus();
 		
-		double[][] outMatrix = ma.mod(ma.add(ma.add(ma.multiply(publicKey, ranMatrix), ma.multiply(errorMatrix, 2)), plaintext), q); //need to access q...
+		double[][] outMatrix = ma.mod(ma.add(ma.add(ma.multiply(publicKey, randMatrix), ma.multiply(errorMatrix, 2)), plaintext), q); //need to access q...
 		return outMatrix;
 
 	}

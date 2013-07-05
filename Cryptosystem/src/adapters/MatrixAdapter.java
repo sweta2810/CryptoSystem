@@ -9,13 +9,13 @@ package adapters;
 import java.math.BigInteger;
 
 public interface MatrixAdapter {
-	public BigInteger[][] add(BigInteger[][] m1, BigInteger[][] m2);
-	public BigInteger[][] multiply(BigInteger[][] m1, BigInteger[][] m2);
-	public BigInteger[][] multiply(BigInteger[][] m, BigInteger b);
-	public BigInteger[][] transpose(BigInteger[][] m);
-	public BigInteger[][] inverse(BigInteger[][] m);
+	public double[][] add(double[][] m1, double[][] m2);
+	public double[][] multiply(double[][] m1, double[][] m2);
+	public double[][] multiply(double[][] m, double b);
+	public double[][] transpose(double[][] m);
+	public double[][] inverse(double[][] m);
 	/**
 	 * Generates a new matrix by performing the mod operation on all components of the inputed matrix.
 	 */
-	public BigInteger[][] mod(BigInteger[][] m, BigInteger mod);
+	public double[][] mod(double[][] m, double mod);
 	}

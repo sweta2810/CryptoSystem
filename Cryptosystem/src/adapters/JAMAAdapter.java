@@ -1,12 +1,11 @@
 package adapters;
 
-import java.math.BigInteger;
-
-import Jama.Matrix;
 
 
+import jama.Matrix;
 
-public class JAMAAdapter {
+
+public class JAMAAdapter implements MatrixAdapter{
 
 	public double[][] add(double[][] m1, double[][] m2) {
 		Matrix M1 = new Matrix(m1);

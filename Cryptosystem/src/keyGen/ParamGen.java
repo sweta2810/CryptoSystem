@@ -6,6 +6,8 @@ import java.util.Random;
 import java.math.BigInteger;
 import java.math.BigDecimal;
 
+//import org.apache.commons.math3.distribution.NormalDistribution;
+
 /**
  *@author Nishant Rathore
  *
@@ -22,14 +24,15 @@ public class ParamGen {
 	private final long ANY_C;
 	private final long DIMENSION_M;
 	private ParamGen paramGenInstance;
-
+	private final double BETA;
+	
 	public ParamGen(){
 	   	
 		SECURITY_PARAMETER = setSecurityParameter();
 		ANY_C = generateAnyC();	
 		MODULUS = generateModulus();
 		DIMENSION_M = generateDimentionality();
-	
+		BETA = generateBeta();
 	}
 	
 	public long setSecurityParameter() {
@@ -50,6 +53,11 @@ public class ParamGen {
 	public double getModulus() {
 		
 		return MODULUS;
+	}
+	
+	public double getBeta(){
+		
+		return BETA;
 	}
 	
 	public long getDimension_M() {
@@ -102,17 +110,24 @@ public class ParamGen {
 
 	}
 
-
+	public double generateBeta(){
+		
+		double beta = (27*Math.pow(getSecurityParameter(), 1+(1.5*getAnyC()))
+				*Math.log10(getSecurityParameter())*Math.log10(getModulus())*Math.sqrt(getModulus()*getDimension_M()));
+		
+		return (1/beta)+1;
+	}
+	
+	
+	
 	public static void main(String[] args){
 
 	    ParamGen pg = new ParamGen();
 	    System.out.println("C: "+ pg.ANY_C);
             System.out.println("Q:"+ pg.MODULUS);
             System.out.println("Q:"+ pg.DIMENSION_M);
-
+        System.out.println(new org.apache.commons.math3.distribution.NormalDistribution().density(new org.apache.commons.math3.distribution.NormalDistribution().sample()));    
+           
 	}	
 
-	//may need to add a method to generate beta, too...
-	//Also, deal with c somehow...
-	
 }
