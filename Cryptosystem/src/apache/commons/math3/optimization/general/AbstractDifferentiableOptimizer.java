@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.commons.math3.optimization.general;
+package apache.commons.math3.optimization.general;
 
 import org.apache.commons.math3.analysis.MultivariateVectorFunction;
 import org.apache.commons.math3.analysis.differentiation.GradientFunction;
